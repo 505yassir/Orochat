@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#241044">
+  <meta name="description" content="OroChat: conecta con amigos y chatea gratis.">
+  <title>OroChat — Chat gratis</title>
+  <link rel="manifest" href="manifest.json">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="app-shell">
+    <header class="topbar">
+      <div class="brand"><span class="brand-mark">✦</span><span>OroChat</span></div>
+      <div class="top-actions">
+        <label class="language-label" for="language">🌐 <span class="sr-only">Idioma</span></label>
+        <select id="language" aria-label="Choose language">
+          <option value="es">Español</option>
+          <option value="en">English</option>
+          <option value="fr">Français</option>
+          <option value="pt">Português</option>
+          <option value="ar">العربية</option>
+        </select>
+        <div class="gold-pill" title="Oro virtual de demostración">🪙 <span id="gold-count">∞</span></div>
+      </div>
+    </header>
+
+    <main class="layout">
+      <aside class="sidebar">
+        <div class="profile-card">
+          <div class="avatar avatar-large" id="my-avatar">Y</div>
+          <div class="profile-copy"><strong id="my-name">Tu perfil</strong><span class="online-dot">● <span data-i18n="online">En línea</span></span></div>
+          <button class="icon-button" id="edit-profile" aria-label="Editar perfil">✎</button>
+        </div>
+        <nav class="nav-tabs" aria-label="Main navigation">
+          <button class="nav-tab active" data-tab="chats">💬 <span data-i18n="chats">Chats</span></button>
+          <button class="nav-tab" data-tab="friends">👥 <span data-i18n="friends">Amigos</span></button>
+          <button class="nav-tab" data-tab="profile">👤 <span data-i18n="profile">Perfil</span></button>
+        </nav>
+        <div class="sidebar-heading"><span data-i18n="people">Personas</span><span class="small-count">3</span></div>
+        <div id="contact-list" class="contact-list"></div>
+        <p class="demo-note" data-i18n="demoNote">Modo de demostración: estos perfiles son ficticios.</p>
+      </aside>
+
+      <section class="content" id="content">
+        <div class="chat-header">
+          <div class="avatar" id="chat-avatar">M</div>
+          <div class="chat-person"><strong id="chat-name">María</strong><span id="chat-status" class="muted">● En línea</span></div>
+          <button class="icon-button" id="view-profile" aria-label="View profile">ⓘ</button>
+        </div>
+        <div class="chat-info-banner">🔒 <span data-i18n="privacyBanner">Sé amable. No compartas contraseñas ni datos bancarios.</span></div>
+        <div class="messages" id="messages" aria-live="polite"></div>
+        <form id="message-form" class="composer">
+          <input id="message-input" type="text" maxlength="1000" autocomplete="off" placeholder="Escribe un mensaje..." aria-label="Message" required>
+          <button type="submit" class="send-button" data-i18n="send">Enviar ➤</button>
+        </form>
+        <div class="composer-foot"><span data-i18n="freeChat">Mensajes gratis · Oro virtual ilimitado en esta demo</span><span id="char-count">0/1000</span></div>
+      </section>
+    </main>
+    <footer class="footer">OroChat <span>·</span> <span data-i18n="footer">Prototipo inicial · No es todavía un servicio en línea</span></footer>
+  </div>
+
+  <dialog id="profile-dialog">
+    <form method="dialog" id="profile-form" class="dialog-form">
+      <div class="dialog-heading"><h2 data-i18n="editYourProfile">Edita tu perfil</h2><button class="icon-button" value="cancel" aria-label="Close">✕</button></div>
+      <label for="profile-name" data-i18n="yourName">Tu nombre</label>
+      <input id="profile-name" maxlength="40" placeholder="Cómo te llamas">
+      <label for="profile-bio" data-i18n="aboutYou">Sobre ti</label>
+      <textarea id="profile-bio" maxlength="160" rows="3" placeholder="Cuéntales algo de ti"></textarea>
+      <button class="send-button" id="save-profile" value="save" data-i18n="save">Guardar</button>
+      <p class="muted small" data-i18n="profileLocal">En esta versión, el perfil se guarda solo en este dispositivo.</p>
+    </form>
+  </dialog>
+
+  <dialog id="info-dialog">
+    <form method="dialog" class="dialog-form">
+      <div class="dialog-heading"><h2 id="info-title">Perfil</h2><button class="icon-button" value="cancel" aria-label="Close">✕</button></div>
+      <div id="info-body"></div>
+      <button class="send-button" value="cancel" data-i18n="close">Cerrar</button>
+    </form>
+  </dialog>
+  <script src="app.js"></script>
+</body>
+</html>

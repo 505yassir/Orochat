@@ -1,0 +1,10 @@
+{
+  "name": "OroChat",
+  "short_name": "OroChat",
+  "description": "Conecta con amigos y chatea gratis.",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#f5f2fa",
+  "theme_color": "#241044",
+  "icons": []
+}
